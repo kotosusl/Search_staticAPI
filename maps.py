@@ -19,6 +19,7 @@ response = requests.get(geocoder_api_server, params=geocoder_params)
 if not response:
     print("Ошибка выполнения запроса:")
     print("Http статус:", response.status_code, "(" + response.reason + ")")
+    sys.exit(0)
 
 json_response = response.json()
 toponym = json_response["response"]["GeoObjectCollection"][
